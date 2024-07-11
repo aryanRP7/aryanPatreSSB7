@@ -24,12 +24,12 @@ const TAT = () => {
     if (testStarted && selectedSet) {
       if (isImageVisible) {
         resetStopwatch();
-        beepRef.current.play();
+        playBeep(); // Play beep sound when image is visible
         startStopwatch();
         imageTimer = setTimeout(() => {
           setIsImageVisible(false);
           startBlankScreenTimer();
-        }, 3000); // Show image for 30 seconds
+        }, 30000); // Show image for 30 seconds
       } else {
         blankTimer = setTimeout(() => {
           setCurrentImageIndex((prevIndex) => {
@@ -41,7 +41,7 @@ const TAT = () => {
             }
           });
           setIsImageVisible(true);
-        }, 2000); // Show blank screen for 3 minutes and 40 seconds (220 seconds)
+        }, 220000); // Show blank screen for 3 minutes and 40 seconds (220 seconds)
       }
     }
 
@@ -75,6 +75,14 @@ const TAT = () => {
   // Function to start the blank screen timer
   const startBlankScreenTimer = () => {
     // Implement your logic for the blank screen timer here if needed
+  };
+
+  // Function to play the beep sound
+  const playBeep = () => {
+    if (beepRef.current) {
+      beepRef.current.currentTime = 0; // Reset audio to start
+      beepRef.current.play();
+    }
   };
 
   // Handle set selection
@@ -129,17 +137,16 @@ const TAT = () => {
             <div className="test">
               <div className="image-container">
                 {isImageVisible ? (
-                  <>
-                    <img
-                      src={process.env.PUBLIC_URL + '/' + tatData.find((item) => item.set === selectedSet).images[currentImageIndex]}
-                      alt={`TAT ${selectedSet} ${currentImageIndex + 1}`}
-                      className="test-image"
-                    />
-                    <audio ref={beepRef} src={beepSound} />
-                  </>
+                  <img
+                    src={process.env.PUBLIC_URL + '/' + tatData.find((item) => item.set === selectedSet).images[currentImageIndex]}
+                    alt={`TAT ${selectedSet} ${currentImageIndex + 1}`}
+                    className="test-image"
+                  />
                 ) : (
                   <div className="blank-screen"></div>
                 )}
+                {/* Ensure audio element is hidden */}
+                <audio ref={beepRef} src={beepSound} style={{ display: 'none' }} />
               </div>
               <div className="stopwatch">
                 {formatTime(stopwatchSeconds)}
