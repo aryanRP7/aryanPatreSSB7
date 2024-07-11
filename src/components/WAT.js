@@ -5,6 +5,7 @@ import './WAT.css'; // Create WAT.css for styling if needed
 import beepSound from './beep.mp3'; // Ensure beep sound is imported
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
+import NoSleep from 'nosleep.js'; // Import NoSleep library
 
 const WAT = () => {
   const [selectedSet, setSelectedSet] = useState(null);
@@ -18,6 +19,7 @@ const WAT = () => {
   const stopwatchIntervalRef = useRef(null);
   const wordTimeoutRef = useRef(null);
   const blankTimeoutRef = useRef(null);
+  const noSleep = useRef(new NoSleep()); // Create a reference to NoSleep instance
 
   useEffect(() => {
     let wordTimer;
@@ -27,7 +29,7 @@ const WAT = () => {
       // Start displaying word
       if (isWordVisible) {
         beepRef.current.play();
-        setStopwatchSeconds(0); // Reset stopwatch when word appears
+        resetStopwatch(); // Reset stopwatch when word appears
         startStopwatch();
         wordTimer = setTimeout(() => {
           setIsWordVisible(false);
@@ -90,6 +92,7 @@ const WAT = () => {
   // Start test button handler
   const handleStartTest = () => {
     setTestStarted(true);
+    noSleep.current.enable(); // Enable screen wake lock when test starts
   };
 
   // Function to format seconds as MM:SS
@@ -99,6 +102,12 @@ const WAT = () => {
     const formattedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
     const formattedSeconds = remainingSeconds < 10 ? `0${remainingSeconds}` : `${remainingSeconds}`;
     return `${formattedMinutes}:${formattedSeconds}`;
+  };
+
+  // Stop test button handler (to release screen wake lock)
+  const handleStopTest = () => {
+    setTestStarted(false);
+    noSleep.current.disable(); // Disable screen wake lock when test stops
   };
 
   return (
@@ -122,9 +131,16 @@ const WAT = () => {
         <div className="selected-set">
           <h2>Words - Set {selectedSet}</h2>
           <div className="options">
-            <button className="option-button" onClick={handleStartTest}>
-              Start Test
-            </button>
+            {!testStarted && (
+              <button className="option-button" onClick={handleStartTest}>
+                Start Test
+              </button>
+            )}
+            {testStarted && (
+              <button className="option-button" onClick={handleStopTest}>
+                Stop Test
+              </button>
+            )}
           </div>
           {testStarted && (
             <div className="test">
@@ -132,13 +148,13 @@ const WAT = () => {
                 {isWordVisible ? (
                   <p className="test-word">
                     {watData.sets.find((item) => item.id === selectedSet).words[currentWordIndex]}
-                <div className="stopwatch">
-                  Stopwatch: {formatTime(stopwatchSeconds)}
-                </div>
                   </p>
                 ) : (
                   <div className="blank-screen"></div>
                 )}
+                <div className="stopwatch">
+                  Stopwatch: {formatTime(stopwatchSeconds)}
+                </div>
               </div>
               <audio ref={beepRef} src={beepSound} />
             </div>
