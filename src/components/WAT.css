@@ -93,33 +93,16 @@ body, html {
     height: 100vh;
     background-color: black;
   }
-  /* wat.css */
-
-  .word-container {
-    position: relative;
-    min-height: 100vh; /* Adjust as needed */
-  }
   
+  /* Adjustments for stopwatch */
   .stopwatch {
     position: absolute;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    color: white; /* Adjust styling as needed */
+    color: white;
+    font-size: 1rem; 
   }
-  
-  
-  /* Responsive adjustments */
-  @media only screen and (max-width: 768px) {
-    /* Existing responsive adjustments ... */
-  
-    /* Adjust stopwatch position for smaller screens */
-    .stopwatch {
-      top: 10px;
-      right: 10px;
-    }
-  }
-  
   
   /* Responsive adjustments */
   @media only screen and (max-width: 768px) {
@@ -136,6 +119,12 @@ body, html {
     .home-icon {
       top: 10px;
       left: 10px;
+    }
+  
+    /* Adjust stopwatch position for smaller screens */
+    .stopwatch {
+      bottom: 10px;
+      font-size: 1rem; 
     }
   }
   

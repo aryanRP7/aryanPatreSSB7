@@ -32,7 +32,7 @@ const WAT = () => {
         wordTimer = setTimeout(() => {
           setIsWordVisible(false);
           startBlankScreenTimer();
-        }, 14000); // Show word for 14 seconds
+        }, 140000); // Show word for 14 seconds
       }
     }
 
@@ -129,12 +129,12 @@ const WAT = () => {
           {testStarted && (
             <div className="test">
               <div className="word-container">
-                <div className="stopwatch">
-                  Stopwatch: {formatTime(stopwatchSeconds)}
-                </div>
                 {isWordVisible ? (
                   <p className="test-word">
                     {watData.sets.find((item) => item.id === selectedSet).words[currentWordIndex]}
+                <div className="stopwatch">
+                  Stopwatch: {formatTime(stopwatchSeconds)}
+                </div>
                   </p>
                 ) : (
                   <div className="blank-screen"></div>
