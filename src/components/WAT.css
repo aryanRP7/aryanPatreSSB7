@@ -93,6 +93,33 @@ body, html {
     height: 100vh;
     background-color: black;
   }
+  /* wat.css */
+
+  .word-container {
+    position: relative;
+    min-height: 100vh; /* Adjust as needed */
+  }
+  
+  .stopwatch {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white; /* Adjust styling as needed */
+  }
+  
+  
+  /* Responsive adjustments */
+  @media only screen and (max-width: 768px) {
+    /* Existing responsive adjustments ... */
+  
+    /* Adjust stopwatch position for smaller screens */
+    .stopwatch {
+      top: 10px;
+      right: 10px;
+    }
+  }
+  
   
   /* Responsive adjustments */
   @media only screen and (max-width: 768px) {

@@ -96,7 +96,14 @@ body, html {
     height: 100%;
     background-color: black;
   }
-  
+  /* stopwatch */
+  .stopwatch {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    padding: 5px; /* Padding around the stopwatch text */
+    border-radius: 5px; /* Rounded corners for the background */
+    color: white;
+    text-align: center;
+  }
   /* Responsive adjustments */
   @media only screen and (max-width: 768px) {
     .tat-container {

@@ -4,8 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faEye } from '@fortawesome/free-solid-svg-icons';
-<FontAwesomeIcon icon="fa-brands fa-wordpress" />
+import { faHome, faEye, faClock } from '@fortawesome/free-solid-svg-icons';
 
 const Home = () => {
   return (
@@ -29,6 +28,11 @@ const Home = () => {
         <Link to="/showwat">
           <button className="option-button">
             <FontAwesomeIcon icon={faEye} /> WAT
+          </button>
+        </Link>
+        <Link to="/stopwatch">
+          <button className="option-button">
+            <FontAwesomeIcon icon={faClock} /> Stopwatch
           </button>
         </Link>
       </div>

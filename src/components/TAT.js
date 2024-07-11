@@ -11,8 +11,11 @@ const TAT = () => {
   const [testStarted, setTestStarted] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isImageVisible, setIsImageVisible] = useState(true);
+  const [stopwatchSeconds, setStopwatchSeconds] = useState(0);
+  const [stopwatchRunning, setStopwatchRunning] = useState(false);
 
   const beepRef = useRef(null);
+  const stopwatchIntervalRef = useRef(null);
 
   useEffect(() => {
     let imageTimer;
@@ -20,9 +23,12 @@ const TAT = () => {
 
     if (testStarted && selectedSet) {
       if (isImageVisible) {
+        resetStopwatch(); // Reset stopwatch to 0 when new image appears
         beepRef.current.play();
+        startStopwatch(); // Start stopwatch when beep is played
         imageTimer = setTimeout(() => {
           setIsImageVisible(false);
+          startBlankScreenTimer(); // Start blank screen timer after image display
         }, 30000); // Show image for 30 seconds
       } else {
         blankTimer = setTimeout(() => {
@@ -35,7 +41,7 @@ const TAT = () => {
             }
           });
           setIsImageVisible(true);
-        }, 220000); // Show blank screen for 3 minutes and 40 seconds
+        }, 220000); // Show blank screen for 3 minutes and 40 seconds (220 seconds)
       }
     }
 
@@ -45,15 +51,53 @@ const TAT = () => {
     };
   }, [isImageVisible, testStarted, selectedSet]);
 
+  // Function to start the stopwatch
+  const startStopwatch = () => {
+    if (!stopwatchRunning) {
+      setStopwatchRunning(true);
+      stopwatchIntervalRef.current = setInterval(() => {
+        setStopwatchSeconds((prevSeconds) => prevSeconds + 1);
+      }, 1000); // Update stopwatch every second (1000ms)
+    }
+  };
+
+  // Function to stop the stopwatch
+  const stopStopwatch = () => {
+    clearInterval(stopwatchIntervalRef.current);
+    setStopwatchRunning(false);
+  };
+
+  // Function to reset the stopwatch
+  const resetStopwatch = () => {
+    setStopwatchSeconds(0);
+  };
+
+  // Function to start the blank screen timer
+  const startBlankScreenTimer = () => {
+    // Implement your logic for the blank screen timer here if needed
+  };
+
+  // Handle set selection
   const handleSetSelection = (set) => {
     setSelectedSet(set);
     setTestStarted(false);
     setCurrentImageIndex(0);
     setIsImageVisible(true);
+    resetStopwatch(); // Reset stopwatch on new set selection
   };
 
+  // Start test button handler
   const handleStartTest = () => {
     setTestStarted(true);
+  };
+
+  // Function to format seconds as MM:SS
+  const formatTime = (seconds) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    const formattedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
+    const formattedSeconds = remainingSeconds < 10 ? `0${remainingSeconds}` : `${remainingSeconds}`;
+    return `${formattedMinutes}:${formattedSeconds}`;
   };
 
   return (
@@ -85,16 +129,21 @@ const TAT = () => {
             <div className="test">
               <div className="image-container">
                 {isImageVisible ? (
-                  <img
-                    src={process.env.PUBLIC_URL + '/' + tatData.find((item) => item.set === selectedSet).images[currentImageIndex]}
-                    alt={`TAT ${selectedSet} ${currentImageIndex + 1}`}
-                    className="test-image"
-                  />
+                  <>
+                    <img
+                      src={process.env.PUBLIC_URL + '/' + tatData.find((item) => item.set === selectedSet).images[currentImageIndex]}
+                      alt={`TAT ${selectedSet} ${currentImageIndex + 1}`}
+                      className="test-image"
+                    />
+                    <audio ref={beepRef} src={beepSound} />
+                  </>
                 ) : (
                   <div className="blank-screen"></div>
                 )}
               </div>
-              <audio ref={beepRef} src={beepSound} />
+              <div className="stopwatch">
+                {formatTime(stopwatchSeconds)}
+              </div>
             </div>
           )}
         </div>
