@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/aryanPatreSSB7/static/css/main.46eefd1a.css",
+    "main.js": "/aryanPatreSSB7/static/js/main.230a8228.js",
+    "static/media/beep.mp3": "/aryanPatreSSB7/static/media/beep.23359985b300ca2c64ae.mp3",
+    "index.html": "/aryanPatreSSB7/index.html",
+    "main.46eefd1a.css.map": "/aryanPatreSSB7/static/css/main.46eefd1a.css.map",
+    "main.230a8228.js.map": "/aryanPatreSSB7/static/js/main.230a8228.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.46eefd1a.css",
+    "static/js/main.230a8228.js"
+  ]
+}
