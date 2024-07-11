@@ -29,7 +29,7 @@ const TAT = () => {
         imageTimer = setTimeout(() => {
           setIsImageVisible(false);
           startBlankScreenTimer();
-        }, 30000); // Show image for 30 seconds
+        }, 3000); // Show image for 30 seconds
       } else {
         blankTimer = setTimeout(() => {
           setCurrentImageIndex((prevIndex) => {
@@ -41,7 +41,7 @@ const TAT = () => {
             }
           });
           setIsImageVisible(true);
-        }, 220000); // Show blank screen for 3 minutes and 40 seconds (220 seconds)
+        }, 2000); // Show blank screen for 3 minutes and 40 seconds (220 seconds)
       }
     }
 
