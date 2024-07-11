@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/aryanPatreSSB7/static/css/main.5a9142fa.css",
-    "main.js": "/aryanPatreSSB7/static/js/main.d4a62a53.js",
+    "main.js": "/aryanPatreSSB7/static/js/main.e283bc4a.js",
     "static/media/beep.mp3": "/aryanPatreSSB7/static/media/beep.23359985b300ca2c64ae.mp3",
     "index.html": "/aryanPatreSSB7/index.html",
     "main.5a9142fa.css.map": "/aryanPatreSSB7/static/css/main.5a9142fa.css.map",
-    "main.d4a62a53.js.map": "/aryanPatreSSB7/static/js/main.d4a62a53.js.map"
+    "main.e283bc4a.js.map": "/aryanPatreSSB7/static/js/main.e283bc4a.js.map"
   },
   "entrypoints": [
     "static/css/main.5a9142fa.css",
-    "static/js/main.d4a62a53.js"
+    "static/js/main.e283bc4a.js"
   ]
 }
