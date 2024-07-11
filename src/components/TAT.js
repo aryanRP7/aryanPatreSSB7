@@ -5,7 +5,6 @@ import './TAT.css';
 import beepSound from './beep.mp3';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
-import NoSleep from 'nosleep.js'; // Import NoSleep library
 
 const TAT = () => {
   const [selectedSet, setSelectedSet] = useState(null);
@@ -17,7 +16,6 @@ const TAT = () => {
 
   const beepRef = useRef(null);
   const stopwatchIntervalRef = useRef(null);
-  const noSleep = useRef(new NoSleep()); // Initialize NoSleep instance
 
   useEffect(() => {
     let imageTimer;
@@ -25,12 +23,12 @@ const TAT = () => {
 
     if (testStarted && selectedSet) {
       if (isImageVisible) {
-        resetStopwatch(); // Reset stopwatch to 0 when new image appears
+        resetStopwatch();
         beepRef.current.play();
-        startStopwatch(); // Start stopwatch when beep is played
+        startStopwatch();
         imageTimer = setTimeout(() => {
           setIsImageVisible(false);
-          startBlankScreenTimer(); // Start blank screen timer after image display
+          startBlankScreenTimer();
         }, 30000); // Show image for 30 seconds
       } else {
         blankTimer = setTimeout(() => {
@@ -52,14 +50,6 @@ const TAT = () => {
       clearTimeout(blankTimer);
     };
   }, [isImageVisible, testStarted, selectedSet]);
-
-  useEffect(() => {
-    if (testStarted) {
-      noSleep.current.enable(); // Enable NoSleep when test starts
-    } else {
-      noSleep.current.disable(); // Disable NoSleep when test ends
-    }
-  }, [testStarted]);
 
   // Function to start the stopwatch
   const startStopwatch = () => {
