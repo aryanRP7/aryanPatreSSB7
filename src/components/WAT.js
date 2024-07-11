@@ -32,7 +32,7 @@ const WAT = () => {
         wordTimer = setTimeout(() => {
           setIsWordVisible(false);
           startBlankScreenTimer();
-        }, 140000); // Show word for 14 seconds
+        }, 14000); // Show word for 14 seconds
       }
     }
 
