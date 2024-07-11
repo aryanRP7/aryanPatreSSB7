@@ -1,0 +1,198 @@
+{
+    "sets": [
+      {
+        "id": 1,
+        "words": [
+            "Conquer", "Haste", "Party", "Welfare", "Wife", "Work", "Yield", "Zoo", "Wisdom", 
+ "Worst", "Young", "Match", "Withdraw", "Worthless", "Youth", "Zenith", "Women", 
+ "Worthy", "Zeal", "False", "Kill", "Knife", "Blood", "Suicide", "Fear", "Pain", 
+ "Grief", "Loss", "Betrayal", "Failure", "Conflict", "Danger", "Poverty", "Despair", 
+ "Loneliness", "Regret", "Tears", "Sorrow", "Disaster", "Chaos", "Tragedy", "Agony", 
+ "Melancholy", "Crisis", "Misery", "Guilt", "Shame", "Corruption", "Darkness", "Void", 
+ "Hatred", "Anguish", "Torture", "Nightmare", "Curse", "Abandonment", "Rejection"
+          
+        ]
+      },
+      {
+        "id": 2,
+        "words": [
+          "Bachelor", "Dumb", "Late", "Selfish", "Bluff",
+         "Ballot", "Duty", "Lazy", "Service", "Aloof",
+         "Anxiety", "Ego", "Soldier", "Shame", "Annoys",
+         "Appeal", "Loose", "Lie", "Progress", "Extinct",
+         "Bed", "Initiative", "Gun", "Lifeless", "Hand",
+         "Failure", "Blunder", "Space", "Sick", "Urge",
+         "Clean", "Noise", "Limit", "Booze", "Bilateral",
+         "Architect", "Enmity", "Lively", "Offense", "Solve",
+         "Books", "Fellow", "Machine", "Punish", "Compel",
+         "Not", "Film", "Mad", "Purity", "Life",
+         "Border", "Finish", "Man", "Suitable", "Fair",
+         "Simple", "Lonely", "Oath", "Victory", "Complete"
+        ]
+      },
+      {
+        "id": 3,
+        "words": [
+          "Behave", "Depress", "Haste", "Operation", "Hatred",
+         "Best", "Fail/Failure", "Confidence", "Work", "Yield",
+         "Aim", "Dialogue", "Harmful", "Hardwork", "Mistake",
+         "Bitterness", "Offensive", "Worthy", "Pain", "Vision",
+         "Defense", "Un-fair", "Virtue", "Withdraw", "Party",
+         "Beauty", "Violate", "Friend", "Mistrust", "Worthless",
+         "Puzzle", "Bright", "Conduct", "Broken", "Zeal",
+         "Habit", "Weak", "Organize", "Use", "Burden",
+         "Quick", "Congratulation", "Young", "Wealth", "Task",
+         "Lose", "Unhappiness", "Passion", "Match", "Conquer",
+         "Harm", "Happy", "Officer", "Wisdom", "Foul",
+         "Continue", "Welfare", "Violence", "Zenith", "Bullet"
+        ]
+      },
+      {
+        "id": 4,
+        "words": [
+       "Aid", "Guilty", "Ill", "Problems", "Bee",
+         "Guts", "Demand", "Illiterate", "Class", "Beer",
+         "All", "Deny", "Imagination", "Project", "Beg",
+         "Injury", "Looser", "Impossible", "Prosperity", "Emergency",
+         "Ambassador", "Depressed", "Impurity", "Provide", "End",
+         "Anguish", "Failure", "India", "Sharp", "Success",
+         "Climb", "Shy", "Inferior", "Shy", "Suicide",
+         "Bluff", "Tank", "Influence", "Purpose", "Leader",
+         "Enemy", "Develop", "Barrier", "Handicap", "Embarrass",
+         "Approach", "Sleep", "Company", "Question", "Desire",
+         "No", "Dictator", "Injustice", "Frustration", "Despair",
+         "Begin", "Excuse", "Logic", "Situation", "Sin"      ]
+      },
+      {
+        "id": 5,
+        "words": [
+          "Confusion", "Women", "Ego", "Leader", "Shame",
+         "Teacher", "Zoo", "Distress", "Jungle", "Rude",
+         "Youth", "False", "Corruption", "Help", "Jealous",
+         "Misery", "Team", "Hide", "Plan", "Limit",
+         "Wife", "Marriage", "Enemy", "Humiliate", "Possible",
+         "Fright", "Worst", "Admire", "Cult", "Simple",
+         "Money", "Duty", "Height", "Persuade", "Decide",
+         "Technology", "Zoo", "Pessimist", "Defeat", "Snake",
+         "Suspicious", "Beauty", "Religion", "Child", "Kill",
+         "Ballot", "Able", "Horrible", "Waste", "Ant",
+         "Lazy", "Cooperation", "Damage", "Sorry", "Work",
+         "Service", "Discourage", "Aggressive", "Time", "Time"
+        ]
+      },
+      {
+        "id": 6,
+        "words": [
+            "Abandon", "Convince", "Headmaster", "Peace", "Able", "Cooperation", "Height", "Persuade",
+            "Absconder", "Corruption", "Help", "Pessimist", "Accept", "Criticize", "Hesitation", "Pity",
+            "Accomplish", "Cruel", "Hide", "Plan", "Achieve", "Cry", "Holiday", "Playground", "Active",
+            "Culprit", "Home", "Pleasure", "Admire", "Cult", "Honest", "Policy", "Adult", "Cup", "Horrible",
+            "Poor", "Adventure", "Curfew", "Humiliate", "Possible", "Adversity", "Damage", "Humorous",
+            "Praise", "Affection", "Darling", "Hunger", "Precaution", "Again", "Decide", "Hunt", "Preparation",
+            "Against", "Decision", "Hurt", "Pride", "Agree", "Defeat", "Identity", "Principle"
+           
+        ]
+      },
+      {
+        "id": 7,
+        "words": [
+          "Aid", "Defense", "Ill", "Problems", "Aim", "Demand", "Illiterate", "Progress", "All", "Deny", 
+ "Imagination", "Project", "Aloof", "Depress", "Impossible", "Prosperity", "Ambassador", 
+ "Depressed", "Impurity", "Provide", "Anguish", "Deprivation", "India", "Punish", "Annoys", 
+ "Desire", "Inferior", "Purity", "Anxiety", "Despair", "Influence", "Purpose", "Appeal", 
+ "Develop", "Initiative", "Puzzle", "Approach", "Dialogue", "Injury", "Question", "Architect", 
+ "Dictator", "Injustice", "Quick", "Argument", "Differ", "Insane", "Quiz", "Army", "Dirty", 
+ "Insecure", "Racist", "Arrogance", "Disagree", "Insist"
+        ]
+      },
+      {
+        "id": 8,
+        "words": [
+          "Read", "Ashamed", "Disaster", "Insult", "Recession", "Ask", "Discipline", "Jealous", 
+ "Refrain", "Assist", "Discourage", "Jealous.", "Religion", "Atom", "Disorder", "Joke", 
+ "Resentment", "Attempt", "Disrespect", "Joy", "Revenge", "Attract", "Distress", "Jump", 
+ "Rigid", "Average", "Diversity", "Jungle", "Rude", "Award", "Divorce", "Killed", "Sad", 
+ "Aware", "Dreadful", "Kite", "Sadness", "Awful", "Drug", "Land", "Saint", "Baby", "Drug", 
+ "Language", "Select", "Bachelor", "Dumb", "Late", "Selfish", "Ballot", "Duty", "Lazy", 
+ "Service", "Barrier", "Ego", "Leader", "Shame"
+        ]
+      },
+      {
+        "id": 9,
+        "words": [
+        "Beauty", "Embarrass", "Lie", "Sharp", "Bed", "Emergency", "Life", "Shy", "Bee", "End", 
+ "Lifeless", "Sick", "Beer", "Enemy", "Limit", "Simple", "Beg", "Enmity", "Lively", "Sin", 
+ "Beggar", "Evil", "Lockdown", "Sister", "Begin", "Excuse.", "Logic", "Situation", "Behave", 
+ "Extinct", "Lonely", "Sleep", "Best", "Fail/Failure", "Loose", "Soldier", "Bilateral", 
+ "Failure", "Looser", "Solve", "Bitterness", "Fair", "Lose", "Space", "Blessing", "Faith", 
+ "Lost", "Speed", "Blood", "Fall", "Love", "Steal", "Bluff", "Family", "Loyal", "Strange", 
+ "Blunder", "Fault", "Luck", "Strategy"
+        ]
+      },
+      {
+        "id": 10,
+        "words": [
+      "Bold", "Favorite", "Lust", "Stress", "Books", "Fellow", "Machine", "Success", "Booze", 
+ "Film", "Mad", "Suitable", "Border", "Finish", "Man", "Surprised", "Bore", "First", 
+ "Manager", "Suspense", "Boredom", "Flexible", "Marriage", "Suspicious", "Borrow", 
+ "Flowers", "Meet", "Sustain", "Boss", "Foe", "Merit", "Sympathy", "Brave", "Follow", 
+ "Minus", "System", "Break", "Force", "Mirror", "Tackle", "Bribe", "Forest", "Miser", 
+ "Task", "Bright", "Foul", "Misery", "Teacher.", "Broken", "Friend", "Mistake", "Team", 
+ "Bullet", "Fright", "Mistrust", "Technology"
+        ]
+      },
+      {
+        "id": 11,
+        "words": [
+         "Burden", "Frustration", "Money", "Tension", "Calamity", "Furious", "Moral", "Terror", 
+ "Calm", "Future", "Mortality", "Test", "Candle", "Gallant", "Mother", "Thief", "Cannot", 
+ "Gay", "Mountain", "Time", "Capable", "Girl", "Mourn", "Tired", "Captain", "Gloom", "Movie", 
+ "Tragedy", "Care", "God", "Mature", "Traitor", "Careful", "Gold", "Music", "Transparent", 
+ "Casual", "Gossip", "Must", "Traumatic", "Change", "Greedy", "Naught", "Travel", "Character", 
+ "Grief", "Need", "Trust", "Charity", "Group", "Negative", "Truth"
+        ]
+      },
+      {
+        "id": 12,
+        "words": [
+         "Child", "Guard", "Neglect", "Typical", "Choice", "Guide", "Neighbour", "Unable", 
+ "Circumstances", "Guilt", "Nightmare", "Un-fair", "Class", "Guilty", "No", 
+ "Unhappiness", "Clean", "Gun", "Noise", "Urge", "Climb", "Guts", "Not", "Use", 
+ "Company", "Habit", "Oath", "Victory", "Compel", "Hand", "Offense", "Violate", 
+ "Complete", "Handicap", "Offensive", "Violence", "Conduct", "Happy", "Officer.", 
+ "Virtue", "Confidence", "Hardwork", "Operation", "Vision", "Confusion", "Harm", 
+ "Organize", "Weak", "Congratulation", "Harmful", "Pain", "Wealth"
+        ]
+      },
+      {
+        "id": 13,
+        "words": [
+      "HOPE", "FIRE", "SILENCE", "COURAGE", "VIRUS", "JOY", "STORM", "TRUST", "CURSE", "PEACE", 
+"SHADOW", "VICTORY", "FEAR", "LIGHT", "PAIN", "HARMONY", "CHAOS", "LOVE", "MIST", "FREEDOM", 
+"DISASTER", "DREAM", "MYSTERY", "STRENGTH", "WAR", "LAUGHTER", "RUIN", "SERENITY", "CRISIS", 
+"GRATITUDE", "WHISPER", "CONFLICT", "BLISS", "DROUGHT", "KINDNESS", "STRUGGLE", "FAITH", "TRAP", 
+"RESILIENCE", "SORROW", "HONOR", "DISEASE", "SMILE", "ACCIDENT", "PATIENCE", "NIGHTMARE", 
+"COMPASSION", "TRAP", "WEALTH", "SHADOW", "CURIOSITY", "DECEIT", "GENEROSITY", "CURSE", 
+"WISDOM", "GUILT", "BLESSING", "DECEPTION", "RESILIENCE", "BETRAYAL"
+        ]
+      },
+      {
+        "id": 14,
+        "words": [
+          "100 words","Scene", "Impossible", "Society", "Choose", "Unjust", "Image", "Exam", "Drive", "Internet", "Communication", 
+         "Keys", "Murder", "Commit", "Flee", "Practice", "Organize", "Phone", "New", "Agency", "Security", "Since", 
+         "Peace", "Fall", "Hit", "Run", "Chase", "Enter", "Industry", "Limit", "Development", "Coach", "Food", 
+         "Special", "Biomass", "Release", "Head", "Launch", "Medal", "Play", "Department", "Under", "Curb", 
+         "Cooperate", "Hike", "War", "Normal", "Challenge", "Serving", "Bane", "Rapid", "Actress", "Obstacles", 
+         "Strict", "Forceful", "Citizens", "Teams", "Anxious", "Knowledge", "Polite", "Integrity", "Serve", "Loyal", 
+         "Equality", "Justice", "Gratitude", "Rare", "Heavy", "Rude", "Explanation", "Pilot", "Pirate", "Ship", 
+         "Captain", "Camp", "Rights", "Ragging", "Rust", "Patriotism", "Primary", "Performance", "Pity", "Meeting", 
+         "Obedience", "Quick", "Quiet", "Quotes", "Question", "Try", "Unity", "Urge", "Friendship", "Close", 
+         "Migrate", "Decline", "Fly", "Highest", "Shallow", "Wipe", "Vegetables", "Sale"
+        ]
+      }
+    ]
+  }
+
+  
+  
