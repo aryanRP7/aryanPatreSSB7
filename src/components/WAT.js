@@ -77,7 +77,7 @@ const WAT = () => {
         }
       });
       setIsWordVisible(true);
-    }, 40000); // Show blank screen for 40 seconds
+    }, 1000); // Show blank screen for 0.5 seconds
   };
 
   // Handle set selection
