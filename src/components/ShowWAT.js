@@ -18,6 +18,7 @@ const ShowWAT = () => {
         <FontAwesomeIcon icon={faHome} size="2x" />
       </Link>
       <h1>Select a Set of Words</h1>
+      <p>Scroll Down</p>
       <div className="sets">
         {watData.sets.map((set) => (
           <button
