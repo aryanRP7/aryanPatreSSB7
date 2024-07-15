@@ -13,16 +13,19 @@ const TAT = () => {
   const [isImageVisible, setIsImageVisible] = useState(true);
   const [stopwatchSeconds, setStopwatchSeconds] = useState(0);
   const [stopwatchRunning, setStopwatchRunning] = useState(false);
+  const [wakeLockActive, setWakeLockActive] = useState(false); // State to track wake lock status
 
   const beepRef = useRef(null);
   const stopwatchIntervalRef = useRef(null);
   const imageScreenRef = useRef(null); // Reference for scrolling to image screen
+  const wakeLockRef = useRef(null); // Reference for wake lock object
 
   useEffect(() => {
     let imageTimer;
     let blankTimer;
 
     if (testStarted && selectedSet) {
+      requestWakeLock(); // Request wake lock when showing image
       if (isImageVisible) {
         resetStopwatch();
         playBeep(); // Play beep sound when image is visible
@@ -49,8 +52,29 @@ const TAT = () => {
     return () => {
       clearTimeout(imageTimer);
       clearTimeout(blankTimer);
+      releaseWakeLock(); // Ensure wake lock is released on component unmount or test stop
     };
   }, [isImageVisible, testStarted, selectedSet]);
+
+  // Function to request wake lock
+  const requestWakeLock = async () => {
+    try {
+      wakeLockRef.current = await navigator.wakeLock.request('screen');
+      setWakeLockActive(true);
+      console.log('Wake Lock activated!');
+    } catch (err) {
+      console.error(`${err.name}, ${err.message}`);
+    }
+  };
+
+  // Function to release wake lock
+  const releaseWakeLock = async () => {
+    if (wakeLockRef.current !== null) {
+      await wakeLockRef.current.release();
+      setWakeLockActive(false);
+      console.log('Wake Lock released!');
+    }
+  };
 
   // Function to start the stopwatch
   const startStopwatch = () => {

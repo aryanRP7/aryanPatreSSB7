@@ -14,6 +14,7 @@ const WAT = () => {
   const [isWordVisible, setIsWordVisible] = useState(true);
   const [stopwatchSeconds, setStopwatchSeconds] = useState(0);
   const [stopwatchRunning, setStopwatchRunning] = useState(false);
+  const [wakeLockActive, setWakeLockActive] = useState(false); // State to track wake lock status
 
   const beepRef = useRef(null);
   const startButtonRef = useRef(null); // Ref for the Start Test button
@@ -22,6 +23,7 @@ const WAT = () => {
   const wordTimeoutRef = useRef(null);
   const blankTimeoutRef = useRef(null);
   const noSleep = useRef(new NoSleep()); // Create a reference to NoSleep instance
+  const wakeLockRef = useRef(null); // Reference to wake lock object
 
   useEffect(() => {
     let wordTimer;
@@ -29,6 +31,7 @@ const WAT = () => {
 
     if (testStarted && selectedSet) {
       // Start displaying word
+      requestWakeLock(); // Request wake lock when showing word
       if (isWordVisible) {
         beepRef.current.play();
         resetStopwatch(); // Reset stopwatch when word appears
@@ -43,8 +46,29 @@ const WAT = () => {
     return () => {
       clearTimeout(wordTimer);
       clearTimeout(blankTimer);
+      releaseWakeLock(); // Ensure wake lock is released on component unmount or test stop
     };
   }, [isWordVisible, testStarted, selectedSet]);
+
+  // Function to request wake lock
+  const requestWakeLock = async () => {
+    try {
+      wakeLockRef.current = await navigator.wakeLock.request('screen');
+      setWakeLockActive(true);
+      console.log('Wake Lock activated!');
+    } catch (err) {
+      console.error(`${err.name}, ${err.message}`);
+    }
+  };
+
+  // Function to release wake lock
+  const releaseWakeLock = async () => {
+    if (wakeLockRef.current !== null) {
+      await wakeLockRef.current.release();
+      setWakeLockActive(false);
+      console.log('Wake Lock released!');
+    }
+  };
 
   // Function to start the stopwatch
   const startStopwatch = () => {
@@ -95,12 +119,20 @@ const WAT = () => {
   const handleStartTest = () => {
     setTestStarted(true);
     noSleep.current.enable(); // Enable screen wake lock when test starts
+    requestWakeLock(); // Request wake lock when test starts
 
     // Scroll to the end of the page
     window.scrollTo({
       top: document.body.scrollHeight,
       behavior: 'smooth'
     });
+  };
+
+  // Stop test button handler (to release screen wake lock)
+  const handleStopTest = () => {
+    setTestStarted(false);
+    noSleep.current.disable(); // Disable screen wake lock when test stops
+    releaseWakeLock(); // Release wake lock when test stops
   };
 
   // Function to format seconds as MM:SS
@@ -110,12 +142,6 @@ const WAT = () => {
     const formattedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
     const formattedSeconds = remainingSeconds < 10 ? `0${remainingSeconds}` : `${remainingSeconds}`;
     return `${formattedMinutes}:${formattedSeconds}`;
-  };
-
-  // Stop test button handler (to release screen wake lock)
-  const handleStopTest = () => {
-    setTestStarted(false);
-    noSleep.current.disable(); // Disable screen wake lock when test stops
   };
 
   return (
