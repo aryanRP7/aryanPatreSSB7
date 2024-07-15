@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import watData from './data/WATdata.json'; // Assuming you have WATdata.json with word sets
 import './ShowWAT.css'; // Create ShowWAT.css for styling if needed
@@ -6,11 +6,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 const ShowWAT = () => {
-  const [selectedSet, setSelectedSet] = useState(1); // Default to first set
+  const [selectedSet, setSelectedSet] = useState(null); // No default set chosen
+  const selectedSetRef = useRef(null); // Reference for the element to scroll to
 
   const handleSetSelection = (setId) => {
     setSelectedSet(setId);
   };
+
+  useEffect(() => {
+    if (selectedSetRef.current) {
+      selectedSetRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [selectedSet]);
 
   return (
     <div className="show-wat-container">
@@ -18,7 +25,6 @@ const ShowWAT = () => {
         <FontAwesomeIcon icon={faHome} size="2x" />
       </Link>
       <h1>Select a Set of Words</h1>
-      <p>Scroll Down</p>
       <div className="sets">
         {watData.sets.map((set) => (
           <button
@@ -30,17 +36,19 @@ const ShowWAT = () => {
           </button>
         ))}
       </div>
-      <div className="selected-set">
-        <h2>Words - Set {selectedSet}</h2>
-        <div className="word-thumbnails">
-          {watData.sets[selectedSet - 1].words.map((word, index) => (
-            <div key={index} className="word-thumbnail">
-              <p>{word}</p>
-              <div className="word-index">{index + 1}</div>
-            </div>
-          ))}
+      {selectedSet !== null && (
+        <div className="selected-set" ref={selectedSetRef}>
+          <h2>Words - Set {selectedSet}</h2>
+          <div className="word-thumbnails">
+            {watData.sets[selectedSet - 1].words.map((word, index) => (
+              <div key={index} className="word-thumbnail">
+                <p>{word}</p>
+                <div className="word-index">{index + 1}</div>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

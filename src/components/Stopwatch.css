@@ -1,17 +1,6 @@
 /* Stopwatch.css */
 
-.show-wat-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #0d0d0d; /* Darker background */
-  color: white;
-  padding: 20px;
-  box-sizing: border-box;
-  position: relative;
-  padding-top: 80px; /* Increased padding to create space */
-}
+
   
 .home-icon {
   position: absolute;
@@ -81,11 +70,6 @@
     .stopwatch-container {
       padding: 10px;
     }
-
-      .show-wat-container {
-        padding: 10px;
-        padding-top: 120px; /* Adjusted padding for smaller screens */
-      }
       
     
     .stopwatch-section {

@@ -16,6 +16,7 @@ const TAT = () => {
 
   const beepRef = useRef(null);
   const stopwatchIntervalRef = useRef(null);
+  const imageScreenRef = useRef(null); // Reference for scrolling to image screen
 
   useEffect(() => {
     let imageTimer;
@@ -92,11 +93,13 @@ const TAT = () => {
     setCurrentImageIndex(0);
     setIsImageVisible(true);
     resetStopwatch(); // Reset stopwatch on new set selection
+    scrollToImageScreen(); // Scroll to image screen after set selection
   };
 
   // Start test button handler
   const handleStartTest = () => {
     setTestStarted(true);
+    scrollToImageScreen(); // Scroll to image screen after starting the test
   };
 
   // Function to format seconds as MM:SS
@@ -106,6 +109,13 @@ const TAT = () => {
     const formattedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
     const formattedSeconds = remainingSeconds < 10 ? `0${remainingSeconds}` : `${remainingSeconds}`;
     return `${formattedMinutes}:${formattedSeconds}`;
+  };
+
+  // Function to scroll to the image screen
+  const scrollToImageScreen = () => {
+    if (imageScreenRef.current) {
+      imageScreenRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -118,7 +128,7 @@ const TAT = () => {
         {tatData.map((item, index) => (
           <button
             key={index}
-            className="set-button"
+            className={`set-button ${selectedSet === item.set ? 'selected' : ''}`} // Apply selected class
             onClick={() => handleSetSelection(item.set)}
           >
             {item.set}
@@ -129,12 +139,15 @@ const TAT = () => {
         <div className="selected-set">
           <h2>{selectedSet}</h2>
           <div className="options">
-            <button className="option-button" onClick={handleStartTest}>
+            <button
+              className="option-button start-button" // Apply start-button class for specific styling
+              onClick={handleStartTest}
+            >
               Start Test
             </button>
           </div>
           {testStarted && (
-            <div className="test">
+            <div className="test" ref={imageScreenRef}> {/* Added ref for scrolling */}
               <div className="image-container">
                 {isImageVisible ? (
                   <img

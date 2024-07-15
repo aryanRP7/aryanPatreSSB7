@@ -1,130 +1,147 @@
-/* wat.css */
-
+/* Adjusted styles for the WAT component */
 body, html {
-    margin: 0;
-    padding: 0;
-    background-color: black; /* Sets the entire background to black */
-    color: white;
-    height: 100%;
-    width: 100%;
-  }
-  
+  margin: 0;
+  padding: 0;
+  background-color: black; /* Sets the entire background to black */
+  color: white;
+  height: 100%;
+  width: 100%;
+}
+
+.wat-container {
+  position: relative; /* To position the home icon correctly */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  background-color: black; /* Ensures the entire background remains black */
+}
+
+.home-icon {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  color: white;
+  z-index: 1000; /* Ensure the icon is always on top */
+}
+
+.sets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.set-button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  cursor: pointer;
+  border-radius: 15px; /* Make corners more curved */
+  background-color: #444;
+  color: white;
+  border: none;
+}
+
+.set-button.selected {
+  background-color: #0066cc; /* Change color of the selected set */
+  color: white;
+}
+
+.set-button:hover {
+  background-color: #555;
+}
+
+.selected-set {
+  margin-top: 20px;
+}
+
+.options {
+  margin-bottom: 20px;
+}
+
+.option-button {
+  padding: 10px 20px;
+  background-color: #444;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.option-button.start-test {
+  background-color: transparent;
+  color: green;
+  border: 2px solid green;
+}
+
+.option-button:hover {
+  background-color: #555;
+}
+
+.test {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+}
+
+.word-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.test-word {
+  font-size: 3em;
+}
+
+.blank-screen {
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+}
+
+/* Adjustments for stopwatch */
+.stopwatch {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 1rem;
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 768px) {
   .wat-container {
-    position: relative; /* To position the home icon correctly */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 20px;
-    box-sizing: border-box;
-    overflow-y: auto;
-    background-color: black; /* Ensures the entire background remains black */
+    padding: 10px; /* Reduce padding on smaller screens */
+    padding-top: 60px; /* Add space for home icon */
   }
-  
-  .home-icon {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    cursor: pointer;
-    color: white;
-    z-index: 1000; /* Ensure the icon is always on top */
-  }
-  
-  .sets {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .set-button {
-    margin: 10px;
-    padding: 10px 20px;
-    font-size: 1.2em;
-    cursor: pointer;
-  }
-  
-  .selected-set {
-    margin-top: 20px;
-  }
-  
-  .options {
-    margin-bottom: 20px;
-  }
-  
+
   .option-button {
-    padding: 10px 20px;
-    background-color: #444;
-    color: white;
-    border: none;
-    cursor: pointer;
-    margin-right: 10px;
+    padding: 10px 16px; /* Adjust padding for smaller buttons */
+    font-size: 0.9em; /* Decrease font size */
   }
-  
-  .option-button:hover {
-    background-color: #555;
+
+  .home-icon {
+    top: 10px;
+    left: 10px;
   }
-  
-  .test {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100%;
-    background-color: black;
-  }
-  
-  .word-container {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-  }
-  
-  .test-word {
-    font-size: 3em;
-  }
-  
-  .blank-screen {
-    width: 100%;
-    height: 100vh;
-    background-color: black;
-  }
-  
-  /* Adjustments for stopwatch */
+
+  /* Adjust stopwatch position for smaller screens */
   .stopwatch {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    font-size: 1rem; 
+    bottom: 10px;
+    font-size: 1rem;
   }
-  
-  /* Responsive adjustments */
-  @media only screen and (max-width: 768px) {
-    .wat-container {
-      padding: 10px; /* Reduce padding on smaller screens */
-      padding-top: 60px; /* Add space for home icon */
-    }
-  
-    .option-button {
-      padding: 10px 16px; /* Adjust padding for smaller buttons */
-      font-size: 0.9em; /* Decrease font size */
-    }
-  
-    .home-icon {
-      top: 10px;
-      left: 10px;
-    }
-  
-    /* Adjust stopwatch position for smaller screens */
-    .stopwatch {
-      bottom: 10px;
-      font-size: 1rem; 
-    }
-  }
-  
+}

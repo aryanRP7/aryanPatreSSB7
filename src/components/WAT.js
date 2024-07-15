@@ -16,6 +16,8 @@ const WAT = () => {
   const [stopwatchRunning, setStopwatchRunning] = useState(false);
 
   const beepRef = useRef(null);
+  const startButtonRef = useRef(null); // Ref for the Start Test button
+  const mainImageRef = useRef(null); // Ref for the main image area
   const stopwatchIntervalRef = useRef(null);
   const wordTimeoutRef = useRef(null);
   const blankTimeoutRef = useRef(null);
@@ -93,6 +95,12 @@ const WAT = () => {
   const handleStartTest = () => {
     setTestStarted(true);
     noSleep.current.enable(); // Enable screen wake lock when test starts
+
+    // Scroll to the end of the page
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: 'smooth'
+    });
   };
 
   // Function to format seconds as MM:SS
@@ -120,7 +128,7 @@ const WAT = () => {
         {watData.sets.map((set, index) => (
           <button
             key={index}
-            className="set-button"
+            className={`set-button ${selectedSet === set.id ? 'selected' : ''}`}
             onClick={() => handleSetSelection(set.id)}
           >
             Set {set.id}
@@ -132,7 +140,7 @@ const WAT = () => {
           <h2>Words - Set {selectedSet}</h2>
           <div className="options">
             {!testStarted && (
-              <button className="option-button" onClick={handleStartTest}>
+              <button className="option-button start-test" onClick={handleStartTest} ref={startButtonRef}>
                 Start Test
               </button>
             )}
@@ -144,7 +152,7 @@ const WAT = () => {
           </div>
           {testStarted && (
             <div className="test">
-              <div className="word-container">
+              <div className="word-container" ref={mainImageRef}>
                 {isWordVisible ? (
                   <p className="test-word">
                     {watData.sets.find((item) => item.id === selectedSet).words[currentWordIndex]}

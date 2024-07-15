@@ -1,21 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import tatData from './data/TATdata.json';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
-import './TAT.css';
+import './ShowTAT.css';
 
 const ShowTAT = () => {
   const [selectedSet, setSelectedSet] = useState(null);
+  const selectedSetRef = useRef(null);
 
   const handleSetSelection = (set) => {
     setSelectedSet(set);
   };
 
+  useEffect(() => {
+    if (selectedSetRef.current) {
+      selectedSetRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [selectedSet]);
+
   return (
-    <div className="tat-container">
+    <div className="show-tat-container">
       <Link to="/" className="home-icon">
         <FontAwesomeIcon icon={faHome} size="2x" />
       </Link>
@@ -24,7 +31,7 @@ const ShowTAT = () => {
         {tatData.map((item, index) => (
           <button
             key={index}
-            className="set-button"
+            className={`set-button ${selectedSet === item.set ? 'active' : ''}`}
             onClick={() => handleSetSelection(item.set)}
           >
             {item.set}
@@ -32,7 +39,7 @@ const ShowTAT = () => {
         ))}
       </div>
       {selectedSet && (
-        <div className="carousel-container">
+        <div className="carousel-container" ref={selectedSetRef}>
           <Carousel showThumbs={false} showStatus={false}>
             {tatData
               .find((item) => item.set === selectedSet)
