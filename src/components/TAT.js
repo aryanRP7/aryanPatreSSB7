@@ -14,6 +14,7 @@ const TAT = () => {
   const [stopwatchSeconds, setStopwatchSeconds] = useState(0);
   const [stopwatchRunning, setStopwatchRunning] = useState(false);
   const [wakeLockActive, setWakeLockActive] = useState(false); // State to track wake lock status
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0); // State to track selected image index from dropdown
 
   const beepRef = useRef(null);
   const stopwatchIntervalRef = useRef(null);
@@ -120,8 +121,14 @@ const TAT = () => {
     scrollToImageScreen(); // Scroll to image screen after set selection
   };
 
+  // Handle image index selection
+  const handleImageIndexSelection = (event) => {
+    setSelectedImageIndex(parseInt(event.target.value));
+  };
+
   // Start test button handler
   const handleStartTest = () => {
+    setCurrentImageIndex(selectedImageIndex);
     setTestStarted(true);
     scrollToImageScreen(); // Scroll to image screen after starting the test
   };
@@ -163,6 +170,13 @@ const TAT = () => {
         <div className="selected-set">
           <h2>{selectedSet}</h2>
           <div className="options">
+            <select id="image-select" onChange={handleImageIndexSelection}>
+              {tatData.find((item) => item.set === selectedSet).images.map((_, index) => (
+                <option key={index} value={index}>
+                  Image {index + 1}
+                </option>
+              ))}
+            </select>
             <button
               className="option-button start-button" // Apply start-button class for specific styling
               onClick={handleStartTest}

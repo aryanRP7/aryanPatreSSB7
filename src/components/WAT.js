@@ -9,6 +9,7 @@ import NoSleep from 'nosleep.js'; // Import NoSleep library
 
 const WAT = () => {
   const [selectedSet, setSelectedSet] = useState(null);
+  const [selectedWordIndex, setSelectedWordIndex] = useState(0);
   const [testStarted, setTestStarted] = useState(false);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [isWordVisible, setIsWordVisible] = useState(true);
@@ -103,7 +104,7 @@ const WAT = () => {
         }
       });
       setIsWordVisible(true);
-    }, 1000); // Show blank screen for 0.5 seconds
+    }, 1000); // Show blank screen for 1 second
   };
 
   // Handle set selection
@@ -111,6 +112,7 @@ const WAT = () => {
     setSelectedSet(setId);
     setTestStarted(false);
     setCurrentWordIndex(0);
+    setSelectedWordIndex(0);
     setIsWordVisible(true);
     resetStopwatch(); // Reset stopwatch when a new set is selected
   };
@@ -118,6 +120,7 @@ const WAT = () => {
   // Start test button handler
   const handleStartTest = () => {
     setTestStarted(true);
+    setCurrentWordIndex(selectedWordIndex); // Start from the selected word index
     noSleep.current.enable(); // Enable screen wake lock when test starts
     requestWakeLock(); // Request wake lock when test starts
 
@@ -144,6 +147,11 @@ const WAT = () => {
     return `${formattedMinutes}:${formattedSeconds}`;
   };
 
+  // Handle word selection from the dropdown
+  const handleWordSelection = (event) => {
+    setSelectedWordIndex(parseInt(event.target.value, 10));
+  };
+
   return (
     <div className="wat-container">
       <Link to="/" className="home-icon">
@@ -166,9 +174,21 @@ const WAT = () => {
           <h2>Words - Set {selectedSet}</h2>
           <div className="options">
             {!testStarted && (
-              <button className="option-button start-test" onClick={handleStartTest} ref={startButtonRef}>
-                Start Test
-              </button>
+              <>
+                <label htmlFor="word-select">Start from word: </label>
+                <select id="word-select" value={selectedWordIndex} onChange={handleWordSelection}>
+                  {watData.sets
+                    .find((set) => set.id === selectedSet)
+                    .words.map((word, index) => (
+                      <option key={index} value={index}>
+                        {index + 1}. {word}
+                      </option>
+                    ))}
+                </select>
+                <button className="option-button start-test" onClick={handleStartTest} ref={startButtonRef}>
+                  Start Test
+                </button>
+              </>
             )}
             {testStarted && (
               <button className="option-button" onClick={handleStopTest}>
